@@ -1,10 +1,12 @@
 import React from 'react';
-import { Navbar,Card } from '../../components';
+import { Navbar,Card ,Button} from '../../components';
 const Contact = () => {
     return (
         <div>
-            <Navbar />
-            <Card />
+            <Navbar isProfileShow={false}/>
+            {/* <Card /> */}
+            <hr />
+            <Button />
             <h1>Contact</h1>
         </div>
     )

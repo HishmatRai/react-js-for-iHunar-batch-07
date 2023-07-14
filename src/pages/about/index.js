@@ -1,10 +1,12 @@
 import React from 'react';
-import { Navbar, Card } from '../../components';
+import { Navbar, Card ,Button} from '../../components';
 const About = () => {
     return (
         <div>
-            <Navbar />
-            <Card />
+            <Navbar isProfileShow={false}/>
+            {/* <Card /> */}
+            <hr />
+            <Button />
             <h1>About</h1>
         </div>
     )

@@ -1,8 +1,8 @@
 import React from "react";
 const Card = () => {
     return (
-        <div>
-        <p>Card</p>
+        <div style={{border:"1px solid red"}}>
+            <p>Card</p>
         </div>
     )
 }

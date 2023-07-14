@@ -1,10 +1,11 @@
 import React from "react";
-import { Link ,useNavigate} from 'react-router-dom'
-const Navbar = () => {
+import { Link, useNavigate } from 'react-router-dom'
+const Navbar = (props) => {
+    console.log("props >>>>", props)
     let navigate = useNavigate();
     return (
         <div>
-            <h1>A tag</h1>
+            {/* <h1>A tag</h1>
             <ul>
                 <li>
                     <a href="/">Home</a>
@@ -33,10 +34,12 @@ const Navbar = () => {
             <button onClick={() => window.location.assign("/")}>Home</button>
             <button onClick={() => window.location.assign("/about")}>About</button>
             <button onClick={() => window.location.assign("/contact")}>Contact</button>
-            <hr />
-            <button onClick={()=> navigate('/')}>Home</button>
-            <button onClick={()=> navigate('/about')}>About</button>
-            <button onClick={()=> navigate('/contact')}>Contact</button>
+            <hr /> */}
+            <button onClick={() => navigate('/')}>Home</button>
+            <button onClick={() => navigate('/about')}>About</button>
+            <button onClick={() => navigate('/contact')}>Contact</button>
+            {props.isProfileShow &&
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj9ySx6w03MteA7LmBWIqr5C7rhqOdC8xY2SLkoAN03bMZfXmTVpRmcH3ewSR_pFpxqJM&usqp=CAU" height={50} />}
         </div>
     )
 }

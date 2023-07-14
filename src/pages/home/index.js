@@ -1,13 +1,32 @@
 import React, { useState } from 'react';
-import { Navbar, Card } from '../../components';
+import { Navbar, Card,Button } from '../../components';
 import './index.css'
 const Home = () => {
     const [userName, setUserName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
     const [isError, setError] = useState(true);
-    const [users, setUsers] = useState([]);
-    console.log("users", users)
+    // edit 
+    const [userNameEdit, setUserNameEdit] = useState("");
+    const [emailEdit, setEmailEdit] = useState("");
+
+    const [users, setUsers] = useState([
+        {
+            userName: "User 1",
+            email: "email@gmail.com",
+            edit: false
+        },
+        {
+            userName: "User 2",
+            email: "email@gmail.com",
+            edit: false
+        },
+        {
+            userName: "User 3",
+            email: "email@gmail.com",
+            edit: false
+        }
+    ]);
     const addEmailAddress = (e) => {
         setEmail(e.target.value)
     }
@@ -31,26 +50,53 @@ const Home = () => {
             setMessage("Success")
             setUserName("");
             setEmail("")
-            console.log("user", user);
             setTimeout(() => {
                 setMessage("")
             }, 2000);
         }
     }
+    // edit handler 
+    const EdidtHandler = (i) => {
+        for (let index = 0; index < users.length; index++) {
+            if (i === index) {
+                users[index].edit = true
+                console.log("true")
+            } else {
+                users[index].edit = false
+                console.log("false")
+            }
+        }
 
+        setUserNameEdit(users[i].userName)
+        setEmailEdit(users[i].email)
+        setUsers([...users])
+
+
+    }
     // Update
-    const UpdateHandler = (index)=>{
-        console.log(users[index])
-        users[index].edit = false
+    const UpdateHandler = (index) => {
+        users[index].edit = false;
+        users[index].userName = userNameEdit;
+        users[index].email = emailEdit;
+        setUsers([...users])
+    }
+    const deleteHandler = (i) => {
+        users.splice(i, 1);
         setUsers([...users])
     }
     return (
         <div>
-            {/* <Navbar />
-            <Card />
+            <Navbar  isProfileShow={true} />
+            {/* <Card /> */}
+            <hr />
+            <Button title="Sign Up" bgColor="red" message="Sign Up"/>
+            <Button title="Sign In" bgColor="green" message="Sign Up"/>
+            <Button title="Log Out" bgColor="blue" message="Log Out"/>
+            <Button title="Update" bgColor="yellow" message="Update"/>
+            <Button title="Edit" bgColor="gray" message="Edit"/>
             <h1>Home</h1>
             <hr />
-            {list.map((v, i) => {
+            {/* {list.map((v, i) => {
                 return (
                     <div key={i} style={{border:"1px solid red",margin:"5px"}}>
                         <h1 >{v}</h1>
@@ -93,7 +139,7 @@ const Home = () => {
                     </div>
                 )
             })} */}
-            <input type='text' placeholder='Username' value={userName} onChange={(e) => setUserName(e.target.value)} />
+            {/* <input type='text' placeholder='Username' value={userName} onChange={(e) => setUserName(e.target.value)} />
             <input type='email' name='email' placeholder='Email Address' value={email} onChange={(e) => addEmailAddress(e)} />
             {message !== "" && <p style={{ color: isError ? "red" : "green" }}>{message}</p>}
 
@@ -108,19 +154,15 @@ const Home = () => {
                             <div key={i} className='card'>
                                 {v.edit ?
                                     <div>
-                                        <input type='text' placeholder='Username' value={v.userName} onChange={(e) => setUserName(e.target.value)} />
-                                        <input type='email' name='email' placeholder='Email Address' value={v.email} onChange={(e) => addEmailAddress(e)} />
-                                        <button onClick={()=> UpdateHandler(i)}>Update</button>
+                                        <input type='text' placeholder='Username' value={userNameEdit} onChange={(e) => setUserNameEdit(e.target.value)} />
+                                        <input type='email' name='email' placeholder='Email Address' value={emailEdit} onChange={(e) => setEmailEdit(e.target.value)} />
+                                        <button onClick={() => UpdateHandler(i)}>Update</button>
                                     </div> :
                                     <div>
                                         <p>Username :- {v.userName}</p>
                                         <p>Email :- {v.email}</p>
-                                        <button onClick={() => {
-                                            users[i].edit = true
-                                            setUsers([...users])
-
-                                        }}>Edit</button>
-                                        <button>Delete</button>
+                                        <button onClick={() => EdidtHandler(i)}>Edit</button>
+                                        <button onClick={() => deleteHandler(i)}>Delete</button>
                                     </div>
                                 }
 
@@ -128,7 +170,7 @@ const Home = () => {
                         )
                     })}
                 </div>
-            }
+            } */}
         </div>
     )
 }
