@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Navbar, Card,Button } from '../../components';
+import { Navbar, Card, Button ,Input} from '../../components';
 import './index.css'
 const Home = () => {
     const [userName, setUserName] = useState("");
@@ -86,15 +86,16 @@ const Home = () => {
     }
     return (
         <div>
-            <Navbar  isProfileShow={true} />
+            <Navbar isProfileShow={true} />
             {/* <Card /> */}
             <hr />
-            <Button title="Sign Up" bgColor="red" message="Sign Up"/>
-            <Button title="Sign In" bgColor="green" message="Sign Up"/>
-            <Button title="Log Out" bgColor="blue" message="Log Out"/>
-            <Button title="Update" bgColor="yellow" message="Update"/>
-            <Button title="Edit" bgColor="gray" message="Edit"/>
+            {/* <Button title="Sign Up" bgColor="red" message="Sign Up" />
+            <Button title="Sign In" bgColor="green" message="Sign Up" />
+            <Button title="Log Out" bgColor="blue" message="Log Out" />
+            <Button title="Update" bgColor="yellow" message="Update" />
+            <Button title="Edit" bgColor="gray" message="Edit" /> */}
             <h1>Home</h1>
+            <Input />
             <hr />
             {/* {list.map((v, i) => {
                 return (
