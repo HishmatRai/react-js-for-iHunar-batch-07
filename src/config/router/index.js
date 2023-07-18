@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Home ,About,NotFound,Contact} from "../../pages";
+import { Home ,About,NotFound,Contact,Gallery} from "../../pages";
 const RouterNavigation = () => {
     return (
         <BrowserRouter>
@@ -8,6 +8,7 @@ const RouterNavigation = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/gallery" element={<Gallery />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </BrowserRouter>

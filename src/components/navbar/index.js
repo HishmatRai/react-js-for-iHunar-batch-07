@@ -38,6 +38,8 @@ const Navbar = (props) => {
             <button onClick={() => navigate('/')}>Home</button>
             <button onClick={() => navigate('/about')}>About</button>
             <button onClick={() => navigate('/contact')}>Contact</button>
+            <button onClick={() => navigate('/gallery')}>gallery</button>
+            {/* gallery */}
             {props.isProfileShow &&
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj9ySx6w03MteA7LmBWIqr5C7rhqOdC8xY2SLkoAN03bMZfXmTVpRmcH3ewSR_pFpxqJM&usqp=CAU" height={50} />}
         </div>
